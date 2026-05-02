@@ -1,4 +1,4 @@
-from langchain_huggingface import ChatHuggingFace, HuggingFacePipeline
+"""from langchain_huggingface import ChatHuggingFace, HuggingFacePipeline
 
 # Build pipeline from Hugging Face Hub
 llm = HuggingFacePipeline.from_model_id(
@@ -12,8 +12,17 @@ llm = HuggingFacePipeline.from_model_id(
 )
 
 # Wrap in Chat interface
-model = ChatHuggingFace(llm=llm)
+model = ChatHuggingFace(llm=llm)"""
 
 # Ask a test question
-result = model.invoke(input("Enter your question: "))
-print(result.content)   # .content gives clean text output
+   # .content gives clean text output
+
+from langchain_huggingface import  HuggingFaceEmbeddings
+from dotenv import load_dotenv
+
+load_dotenv()
+
+embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+text = "asansol is a city in west bengal."
+vector = embeddings.embed_query(text)
+print(str(vector))
