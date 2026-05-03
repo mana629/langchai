@@ -1,4 +1,4 @@
-"""from langchain_huggingface import ChatHuggingFace, HuggingFacePipeline
+from langchain_huggingface import ChatHuggingFace, HuggingFacePipeline
 
 # Build pipeline from Hugging Face Hub
 llm = HuggingFacePipeline.from_model_id(
@@ -12,7 +12,7 @@ llm = HuggingFacePipeline.from_model_id(
 )
 
 # Wrap in Chat interface
-model = ChatHuggingFace(llm=llm)"""
+model = ChatHuggingFace(llm=llm)
 
 # Ask a test question
    # .content gives clean text output
