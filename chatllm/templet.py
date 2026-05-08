@@ -1,7 +1,7 @@
 from langchain_huggingface import ChatHuggingFace, HuggingFacePipeline
 from dotenv import load_dotenv 
 from langchain_core.prompts import PromptTemplate
-from langchain_core.output_parsers import StrOutputParser
+from langchain_core.output_parsers import StrOutputParser,JsonOutputParser
 
 load_dotenv()
 model = ChatHuggingFace(llm=HuggingFacePipeline.from_model_id(

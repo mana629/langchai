@@ -19,4 +19,4 @@ final_result = parser.parse(result.content)
 
 print(final_result)
 print(type(final_result))
-print(type(final_result))
+ 

@@ -13,7 +13,7 @@ model = ChatHuggingFace(llm=HuggingFacePipeline.from_model_id(
 massages= [
 
     SystemMessage(content="You are a helpful assistant."),
-    HumanMessage(content="tell me about langchain?"),
+     
 ]
 result = model.invoke(massages)
 

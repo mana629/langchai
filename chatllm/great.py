@@ -1,5 +1,5 @@
 from langchain_huggingface import ChatHuggingFace, HuggingFacePipeline
-from typing import TypedDict
+from typing import TypedDict,Annotated,Optional
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -11,8 +11,11 @@ model = ChatHuggingFace(llm=HuggingFacePipeline.from_model_id(
 )))
 
 class review (TypedDict):
-    summary :str
-    sentiment :str
+    key_themes : Annotated[list[str], "The key themes of the review"]
+    summary : Annotated[str, "A brief summary of the review"]
+    sentiment : Annotated[str, "The sentiment of the review (positive/negative/neutral)"]
+    pros : Annotated[Optional[list[str]], "The positive aspects of the movie, if any"]
+    cons : Annotated[Optional[list[str]], "The negative aspects of the movie, if any"]
 
 structured_model = model.with_structured_output(review)
 
@@ -21,4 +24,8 @@ The movie was fantastic! I loved the storyline and the acting was superb. The ci
 
 """)
 
-print(result)
+print(result["summary"])
+print(result["sentiment"])
+print(result["key_themes"])
+print(result["pros"])
+print(result["cons"])
